@@ -14,7 +14,7 @@ public class UserRestController {
      * @param password - contains password
      * @return - return user entity
      */
-    @RequestMapping( value = "/user/login", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( value = "/user/login", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User login(@RequestParam("username") String username, @RequestParam("password") String password ){
         User user = new User();
         user.setUsername(username);
@@ -30,6 +30,22 @@ public class UserRestController {
      */
     @RequestMapping( value = "/user/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User login(@RequestBody User user){
+        return user;
+    }
+
+    /**
+     * This profile is being called by form data
+     * Note: header contains content-type: application/json
+     * @param profileId - contains profile id to load user profile
+     * @return
+     */
+    @RequestMapping( value = "/user/profile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public User profile(@RequestParam("profileId") String profileId){
+        User user = new User();
+        user.setUserId("profile-xxxxxxxxxxxx-1");
+        user.setUsername("nabbasi");
+        user.setFirstName("Noman Ali");
+        user.setLastName("Abbasi");
         return user;
     }
 }
