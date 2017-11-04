@@ -1,3 +1,4 @@
 .idea
 spring-boot.iml
 springrest/spring-rest.iml
+springrest/target/
