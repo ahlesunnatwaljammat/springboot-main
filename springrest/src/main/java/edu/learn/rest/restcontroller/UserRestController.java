@@ -1,6 +1,8 @@
 package edu.learn.rest.restcontroller;
 
 import edu.learn.rest.beans.User;
+import edu.learn.security.SpringDataJpaUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,9 @@ public class UserRestController {
     @Value( "${allowed.domains}" )
     private String allowedDomains;
 
+    @Autowired
+    private SpringDataJpaUserDetailsService userDetailsService;
+
     public static final String uploadingdir = System.getProperty("user.dir") + "/uploadingdir/";
 
     /**
@@ -35,7 +40,10 @@ public class UserRestController {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
+
+        this.userDetailsService.loadUserByUsername(user.getUsername());
         request.getSession().setAttribute("loggedInUser", user);
+
         return user;
     }
 

@@ -2,3 +2,7 @@
 spring-boot.iml
 springrest/spring-rest.iml
 springrest/target/
+springjpa/springjpa.iml
+springjpa/target/
+springsecurity/springsecurity.iml
+springsecurity/target/
