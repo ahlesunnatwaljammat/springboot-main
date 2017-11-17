@@ -3,6 +3,8 @@ package edu.learn.rest.restcontroller;
 import edu.learn.rest.beans.User;
 import edu.learn.security.SpringDataJpaUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import edu.learn.rest.utils.CustomResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -36,15 +38,17 @@ public class UserRestController {
      * @return - return user entity
      */
     @RequestMapping( value = "/user/login", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public User login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password ){
+    public CustomResponse login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password ){
+        CustomResponse customResponse = new CustomResponse();
         User user = new User();
+        user.setUserId(username);
         user.setUsername(username);
         user.setPassword(password);
 
         this.userDetailsService.loadUserByUsername(user.getUsername());
         request.getSession().setAttribute("loggedInUser", user);
 
-        return user;
+        return customResponse;
     }
 
     /**

@@ -10,8 +10,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 public class PropertiesWithJavaConfig {
  
    @Bean
-   public static PropertySourcesPlaceholderConfigurer
-     propertySourcesPlaceholderConfigurer() {
+   public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
       return new PropertySourcesPlaceholderConfigurer();
    }
 }

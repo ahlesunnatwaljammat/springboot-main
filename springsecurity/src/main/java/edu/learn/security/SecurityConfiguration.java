@@ -20,27 +20,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-			.userDetailsService(this.userDetailsService)
-				.passwordEncoder(User.PASSWORD_ENCODER);
+			.userDetailsService(this.userDetailsService).passwordEncoder(User.PASSWORD_ENCODER);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-				.antMatchers("/bower_components/**", "/*.js",
-						"/*.jsx", "/main.css").permitAll()
-				.anyRequest().authenticated()
+		http.authorizeRequests()
+				.antMatchers("/user/login").permitAll()
+				.antMatchers("/user/**").hasRole("USER")
+				//.antMatchers("/svc/v1/private/admin/**").hasRole("USER")
 				.and()
-			.formLogin()
-				.defaultSuccessUrl("/", true)
-				.permitAll()
-				.and()
-			.httpBasic()
-				.and()
-			.csrf().disable()
-			.logout()
-				.logoutSuccessUrl("/");
+				//.formLogin().and()
+				.csrf().disable().httpBasic();
 	}
 
 }

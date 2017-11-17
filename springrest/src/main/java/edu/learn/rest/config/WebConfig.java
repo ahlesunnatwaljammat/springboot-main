@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WebConfig {
 
-    @Bean
+    /*@Bean
     public FilterRegistrationBean urebalAuthorizationFilterRegistrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setName("uRebal Authorization Filter");
@@ -17,7 +17,7 @@ public class WebConfig {
         registrationBean.setFilter(uRebalAuthorizationFilter);
         registrationBean.setOrder(1);
         return registrationBean;
-    }
+    }*/
 
     @Bean
     public FilterRegistrationBean urebalCorsFilterRegistrationBean() {
