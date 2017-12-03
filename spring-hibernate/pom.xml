@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>edu.learn.boot</groupId>
-    <artifactId>springjpa</artifactId>
+    <artifactId>spring-hibernate</artifactId>
     <version>0.0.0.1</version>
 
     <dependencies>
@@ -23,12 +23,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
+    
 </project>

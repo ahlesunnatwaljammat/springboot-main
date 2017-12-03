@@ -1,8 +1,11 @@
 .idea
 spring-boot.iml
-springrest/spring-rest.iml
-springrest/target/
-springjpa/springjpa.iml
-springjpa/target/
-springsecurity/springsecurity.iml
-springsecurity/target/
+/spring-rest/spring-rest.iml
+/spring-rest/target/
+/spring-jpa/spring-jpa.iml
+/spring-jpa/target/
+/spring-security/spring-security.iml
+/spring-security/target/
+/spring-hibernate/spring-hibernate.iml
+/spring-hibernate/target/
+

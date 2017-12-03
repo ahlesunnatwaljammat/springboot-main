@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>edu.learn.boot</groupId>
     <artifactId>spring-rest</artifactId>
+    <version>0.0.0.1</version>
 
     <dependencies>
         <dependency>
@@ -26,13 +28,13 @@
 
         <dependency>
             <groupId>edu.learn.boot</groupId>
-            <artifactId>springjpa</artifactId>
+            <artifactId>spring-jpa</artifactId>
             <version>0.0.0.1</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>edu.learn.boot</groupId>
-            <artifactId>springsecurity</artifactId>
+            <artifactId>spring-security</artifactId>
             <version>0.0.0.1</version>
         </dependency>
     </dependencies>

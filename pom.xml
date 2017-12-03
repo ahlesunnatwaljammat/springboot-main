@@ -9,9 +9,10 @@
     <packaging>pom</packaging>
     <version>0.0.0.1</version>
     <modules>
-        <module>springrest</module>
-        <module>springjpa</module>
-        <module>springsecurity</module>
+        <module>spring-hibernate</module>
+        <module>spring-jpa</module>
+        <module>spring-security</module>
+        <module>spring-rest</module>
     </modules>
 
     <properties>
@@ -48,6 +49,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>edu.learn.rest.launcher.RestLauncher</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
